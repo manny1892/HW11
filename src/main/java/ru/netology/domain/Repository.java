@@ -1,3 +1,5 @@
+package ru.netology.domain;
+
 public class Repository {
 
     private Product[] prod = new Product[0];
