@@ -35,7 +35,7 @@ public class Manager {
     }
 
     public boolean matches(Product product, String search) {
-        if (product.getTitle().contains(search)) {
+        if (product.matches(search)) {
             return true;
         } else {
             return false;
