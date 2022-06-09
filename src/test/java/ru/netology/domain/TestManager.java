@@ -148,4 +148,49 @@ public class TestManager {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+
+    @Test
+    public void shouldViewSearchByAuthor() {
+
+        Repository repo = new Repository();
+        Manager manager = new Manager(repo);
+
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+
+        manager.searchBy("King");
+
+        Product[] actual = manager.searchBy("King");
+        Product[] expected = {fourth};
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldViewSearchByManufacturer() {
+
+        Repository repo = new Repository();
+        Manager manager = new Manager(repo);
+
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+
+        manager.searchBy("Samsung");
+
+        Product[] actual = manager.searchBy("Samsung");
+        Product[] expected = {fifth};
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 }
