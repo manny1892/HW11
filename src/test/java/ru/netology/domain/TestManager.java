@@ -144,5 +144,22 @@ public class TestManager {
         });
     }
 
+    @Test
+    public void shouldViewExceptionWithAlreadyExistsAdd() {
+
+        Product firstTest = new Book(1, "Academy", 300, "A.Azimov");
+        Product secondTest = new Book(1, "Academy and Earth", 350, "A.Azimov");
+
+        Repository repo = new Repository();
+        Manager manager = new Manager(repo);
+
+        manager.add(firstTest);
+
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            manager.add(secondTest);
+            ;
+        });
+    }
+
 
 }

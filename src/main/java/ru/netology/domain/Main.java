@@ -20,7 +20,7 @@ public class Main {
         manager.add(fifth);
         manager.add(sixth);
 
-        manager.removeById(7);
+        manager.removeById(4);
 
         manager.getAll();
 

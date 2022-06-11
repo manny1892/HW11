@@ -6,6 +6,11 @@ public class Repository {
 
 
     public void save(Product unit) {
+        for (Product product : prod) {
+            if (findById(unit.id) == product) {
+                throw new AlreadyExistsException("Такой ID товара уже существует! Введите другой! " + "Введеный ID=" + unit.id);
+            }
+        }
         int length = prod.length + 1;
         Product[] tmp = new Product[length];
         System.arraycopy(prod, 0, tmp, 0, prod.length);
