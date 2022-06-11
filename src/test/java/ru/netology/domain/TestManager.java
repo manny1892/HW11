@@ -125,7 +125,7 @@ public class TestManager {
     }
 
     @Test
-    public void shouldViewSearchAfterDelete() {
+    public void shouldViewExceptionWithNotFoundIdDelete() {
 
         Repository repo = new Repository();
         Manager manager = new Manager(repo);
@@ -137,15 +137,12 @@ public class TestManager {
         manager.add(fifth);
         manager.add(sixth);
 
-        manager.removeById(6);
-
         manager.getAll();
 
-        manager.searchBy("3220");
-
-        Product[] actual = manager.searchBy("3220");
-        Product[] expected = {};
-
-        Assertions.assertArrayEquals(expected, actual);
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            manager.removeById(7);
+        });
     }
+
+
 }
